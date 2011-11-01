@@ -1,5 +1,7 @@
 package com.instruments.ocarina.service;
 
-public class SoundPlayer {
+import android.media.SoundPool;
 
+public class SoundPlayer {
+        private SoundPool audioPlayer;
 }
