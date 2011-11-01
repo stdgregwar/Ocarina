@@ -1,5 +1,7 @@
 package com.instruments.ocarina.dao;
 
-public class ResourceRetriever {
+import android.net.Uri;
 
+public class ResourceRetriever {
+          private Uri resourceDirectory;
 }
