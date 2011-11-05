@@ -3,5 +3,8 @@
 
     <string name="hello">Hello World!</string>
     <string name="app_name">Ocarina</string>
+    <string name="startpage">Start Page</string>
+    <string name="classic">Classic Ocarina</string>
+    <string name="fancy">Fancy Ocarina</string>
 
 </resources>
