@@ -8,6 +8,7 @@ public class Fancy extends OcarinaUI {
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
+		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fancy);
 		
 		initializeComponents();

@@ -8,6 +8,7 @@ public class Classic extends OcarinaUI {
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
+		super.onCreate(savedInstanceState);
 		setContentView(R.layout.classic);
 		
 		initializeComponents();

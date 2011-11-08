@@ -8,7 +8,6 @@ import android.view.MenuItem;
 
 public abstract class OcarinaUI extends Activity {
 	
-	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
@@ -49,5 +48,5 @@ public abstract class OcarinaUI extends Activity {
 	private void launchActivity(Class<?> c)
 	{
 		startActivity(new Intent(this, c));
-	}
+	}	
 }
