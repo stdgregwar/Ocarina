@@ -8,7 +8,7 @@ import android.widget.Button;
 import com.instruments.ocarina.R;
 
 
-public class Launcher extends OcarinaUI {
+public class Launcher extends CommonMenu {
 
 		@Override
 		public void onCreate(Bundle savedInstanceState)
