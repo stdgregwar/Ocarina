@@ -46,7 +46,7 @@ public class SoundPlayer {
 	private HashMap<String, Integer> loadAudioFiles() {
 		HashMap<String,Integer> audioFiles = new HashMap<String,Integer>();
 		//To fix later
-		/*audioFiles.put("Do", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/do")).getAbsolutePath(),1));
+		/*audioFiles.put("Do", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/do_low")).getAbsolutePath(),1));
 		audioFiles.put("Fa#", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/fa_sh")).getAbsolutePath(),1));
 		audioFiles.put("Fa", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/fa")).getAbsolutePath(),1));
 		audioFiles.put("La#", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/la_sh")).getAbsolutePath(),1));
