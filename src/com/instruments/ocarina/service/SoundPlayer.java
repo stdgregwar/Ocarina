@@ -85,7 +85,6 @@ public class SoundPlayer implements ISoundPlayer {
 	 * @see com.instruments.ocarina.service.ISoundPlayer#addKey(com.instruments.ocarina.Keys)
 	 */
 
-	@Override
 	public void addKey(Keys key) {
 
 		if (key == Keys.ONE) {
@@ -107,7 +106,6 @@ public class SoundPlayer implements ISoundPlayer {
 	 * @see com.instruments.ocarina.service.ISoundPlayer#removeKey(com.instruments.ocarina.Keys)
 	 */
 	
-	@Override
 	public void removeKey(Keys key) {
 
 		if (key == Keys.ONE) {

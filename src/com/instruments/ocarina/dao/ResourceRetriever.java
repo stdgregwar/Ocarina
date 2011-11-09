@@ -27,7 +27,6 @@ public class ResourceRetriever implements IResourceRetriever {
 	/* (non-Javadoc)
 	 * @see com.instruments.ocarina.dao.IResourceRetriever#getResource(android.net.Uri)
 	 */
-	@Override
 	public File getResource(Uri resource) {
 		File cachedResource = null;
 		if (resource.getScheme() == "file") {
