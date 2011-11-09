@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.instruments.ocarina.dao.ResourceRetriever;
+
+import android.content.ContentResolver;
 import android.media.*;
 
 public class SoundPlayer {
@@ -17,9 +19,9 @@ public class SoundPlayer {
          * 
          * @param cacheDir File object containing path to cache directory to pass to resource retriever.
          */
-        public SoundPlayer(File cacheDir)
+        public SoundPlayer(File cacheDir,ContentResolver resolver)
         {
-        	resourceGet = new ResourceRetriever(cacheDir);
+        	resourceGet = new ResourceRetriever(cacheDir,resolver);
         	audioPlayer = new SoundPool(2,AudioManager.STREAM_MUSIC,0);
         	noteSounds = loadAudioFiles();
         }

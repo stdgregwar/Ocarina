@@ -4,6 +4,11 @@ import android.os.Bundle;
 
 import com.instruments.ocarina.R;
 
+
+/**
+ * Note to reviewer: This activity was delayed to Sprint 2, so it's still in barebones form
+ * 
+ */
 public class Classic extends OcarinaUI {
 
 	@Override

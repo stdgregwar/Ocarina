@@ -33,11 +33,15 @@ public class Launcher extends CommonMenu {
 		/*
 		 * Generic OnClickListener used for launching activities
 		 */
-		class BtnActivityLauncher implements OnClickListener 
+		private class BtnActivityLauncher implements OnClickListener 
 		{
 			private Class<?> activityToLaunch;
 			
-			// overloaded constructor
+			/**
+			 * Overloaded constructor
+			 * @param c
+			 *	This class object is used to create an Intent that is passed to startActivity()
+			 */
 			public BtnActivityLauncher(Class<?> c)
 			{
 				activityToLaunch = c;
