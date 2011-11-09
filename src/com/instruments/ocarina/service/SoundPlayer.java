@@ -18,6 +18,7 @@ public class SoundPlayer {
          * Constructor for class. Also initializes the class vars.
          * 
          * @param cacheDir File object containing path to cache directory to pass to resource retriever.
+         * @param resolver ContentResolver passed from main Activity that allows resource retrieval.
          */
         public SoundPlayer(File cacheDir,ContentResolver resolver)
         {

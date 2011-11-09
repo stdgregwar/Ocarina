@@ -15,6 +15,7 @@ public class ResourceRetriever {
 	 * @param cacheDir
 	 *            File object that should contain the directory to use for
 	 *            cache. Usually gotten with getCacheDir() of app context.
+	 * @param resolve ContentResolver passed from main Activity that allows resource retrieval.
 	 */
 	public ResourceRetriever(File cacheDir, ContentResolver resolve) {
 		cacheDirectory = Uri.parse("file://" + cacheDir.getAbsolutePath());
@@ -44,6 +45,27 @@ public class ResourceRetriever {
 				try {
 					copyFile(new FileInputStream(new File(resource.getPath())),
 							new FileOutputStream(cachedResource));
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		else if (resource.getScheme() == "android.resource") {
+			if (new File(cacheDirectory.getPath() + File.pathSeparator
+					+ resource.getLastPathSegment()).exists()) {
+				cachedResource = new File(cacheDirectory.getPath()
+						+ File.pathSeparator
+						+ resource.getLastPathSegment());
+			} else {
+				cachedResource = new File(cacheDirectory.getPath()
+						+ File.pathSeparator
+						+ resource.getLastPathSegment());
+				try {
+					copyFile(resolver.openInputStream(resource),new FileOutputStream(cachedResource));
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
