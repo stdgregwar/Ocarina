@@ -39,8 +39,8 @@ public class SoundPlayer {
 	public SoundPlayer(File cacheDir, ContentResolver resolver, Context ct) {
 		resourceGet = new ResourceRetriever(cacheDir, resolver);
 		audioPlayer = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
-		noteSounds = loadAudioFiles();
 		context = ct;
+		noteSounds = loadAudioFiles();
 	}
 
 	/**
@@ -64,6 +64,16 @@ public class SoundPlayer {
 		audioFiles.put("Dohi", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/dohi")).getAbsolutePath(),1));
 		*/
 		audioFiles.put("Do", audioPlayer.load(context,R.raw.do_low,1));
+		audioFiles.put("Fa#", audioPlayer.load(context,R.raw.fa_sh,1));
+		audioFiles.put("Fa", audioPlayer.load(context,R.raw.fa,1));
+		audioFiles.put("La#", audioPlayer.load(context,R.raw.la_sh,1));
+		audioFiles.put("La", audioPlayer.load(context,R.raw.la,1));
+		audioFiles.put("Mi", audioPlayer.load(context,R.raw.mi,1));
+		audioFiles.put("Re", audioPlayer.load(context,R.raw.re,1));
+		audioFiles.put("So#", audioPlayer.load(context,R.raw.so_sh,1));
+		audioFiles.put("So", audioPlayer.load(context,R.raw.so,1));
+		audioFiles.put("Ti", audioPlayer.load(context,R.raw.ti,1));
+		audioFiles.put("Dohi", audioPlayer.load(context,R.raw.dohi,1));
 		return audioFiles;
 	}
 	
