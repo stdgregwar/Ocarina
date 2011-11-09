@@ -47,7 +47,6 @@ public class Launcher extends CommonMenu {
 				activityToLaunch = c;
 			}
 			
-			@Override
 			public void onClick(View v) 
 			{
 				startActivity(new Intent(Launcher.this, activityToLaunch));

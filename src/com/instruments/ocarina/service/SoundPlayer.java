@@ -12,6 +12,15 @@ public class SoundPlayer {
         private ResourceRetriever resourceGet;
         private List<Integer> noteSounds;
         
+        // These represent the state of the buttons in the UI
+    	// True = the button is depressed 
+    	//False = the button is not depressed
+    	boolean keyOne;
+    	boolean keyTwo;
+    	boolean keyThree;
+    	boolean keyFour;
+    	boolean keyFive;
+        
         /**
          * Constructor for class. Also initializes the class vars.
          * 
@@ -41,7 +50,8 @@ public class SoundPlayer {
          * @param soundID ID of sound to play.
          * @return ID of stream of playing sound. Can be used to control/stop sound.
          */
-        private int playSound(Integer soundID)
+        @SuppressWarnings("unused")
+		private int playSound(Integer soundID)
         {
         	return audioPlayer.play(soundID, 1, 1, 1, -1, 1);
         }
@@ -59,10 +69,52 @@ public class SoundPlayer {
         /**
          * Method to play note sound based on buttons that are down.
          * 
-         * @param buttons List of buttons and whether they are down or not.
          */
-        public void playNote(List<Boolean> buttons)
-        {
-        	//TODO:Grant will use this function to determine which buttons make which sound.
-        }
+     	
+    	private void setNote(){
+    		
+    		//This takes the state of the UI in terms of which buttons are depressed
+    		// and translates that into what note to play.
+    		
+    		if(keyOne&&keyTwo&&keyThree&&keyFour){
+    			//DO
+    		}
+    		else if(keyOne&&!keyTwo&&keyThree&&keyFour){
+    			//RE
+    		}
+    		else if(keyOne&&keyTwo&&keyThree&&!keyFour){
+    			//Mi
+    		}
+    		else if(keyOne&&!keyTwo&&keyThree&&!keyFour){
+    			//Fa
+    		}
+    		else if(!keyOne&&keyTwo&&keyThree&&keyFour){
+    			//Fa#
+    		}
+    		else if(!keyOne&&!keyTwo&&keyThree&&keyFour){
+    			//So
+    		}
+    		else if(!keyOne&&keyTwo&&keyThree&&!keyFour){
+    			//So#
+    		}
+    		else if(!keyOne&&!keyTwo&&keyThree&&!keyFour){
+    			//La
+    		}
+    		else if(!keyOne&&!keyTwo&&!keyThree&&keyFour){
+    			//La#
+    		}
+    		else if(!keyOne&&keyTwo&&!keyThree&&!keyFour){
+    			//Ti
+    		}
+    		else if(!keyOne&&!keyTwo&&!keyThree&&!keyFour&&keyFive){
+    			//Dohi
+    		}
+    		else{
+    			//silence
+    		}
+    		
+    		//sound playing method will be called here
+    		
+    	}
+    
 }
