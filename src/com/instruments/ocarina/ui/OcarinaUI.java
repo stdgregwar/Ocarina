@@ -19,7 +19,7 @@ public abstract class OcarinaUI extends CommonMenu {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-		soundPlayer = new SoundPlayer(this.getCacheDir(), this.getContentResolver());
+		soundPlayer = new SoundPlayer(this.getCacheDir(), this.getContentResolver(), this);
 	}
 	
 }
