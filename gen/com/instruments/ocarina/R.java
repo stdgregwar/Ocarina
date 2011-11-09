@@ -11,15 +11,24 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int classicbase=0x7f020000;
+        public static final int fancy_button_a=0x7f020001;
+        public static final int fancy_button_b=0x7f020002;
+        public static final int fancybase=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
     }
     public static final class id {
-        public static final int btnClassic=0x7f060001;
-        public static final int btnFancy=0x7f060002;
-        public static final int classic=0x7f060004;
-        public static final int fancy=0x7f060005;
-        public static final int start=0x7f060003;
-        public static final int textView1=0x7f060000;
+        public static final int btnClassic=0x7f060006;
+        public static final int btnFancy=0x7f060007;
+        public static final int classic=0x7f060009;
+        public static final int fancy=0x7f06000a;
+        public static final int fancyRow1=0x7f060001;
+        public static final int fancyRow2=0x7f060002;
+        public static final int fancyRow3=0x7f060003;
+        public static final int fancyRow4=0x7f060004;
+        public static final int start=0x7f060008;
+        public static final int tblFancy=0x7f060000;
+        public static final int textView1=0x7f060005;
     }
     public static final class layout {
         public static final int classic=0x7f030000;
