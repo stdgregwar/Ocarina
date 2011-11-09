@@ -6,7 +6,7 @@ import android.content.ContentResolver;
 import android.net.Uri;
 
 public class ResourceRetriever {
-	private Uri cacheDirectory; //local location to cache files.
+	private Uri cacheDirectory; // local location to cache files.
 	private ContentResolver resolver;
 
 	/**
@@ -15,10 +15,13 @@ public class ResourceRetriever {
 	 * @param cacheDir
 	 *            File object that should contain the directory to use for
 	 *            cache. Usually gotten with getCacheDir() of app context.
+	 * @param resolve
+	 *            ContentResolver passed from main Activity that allows resource
+	 *            retrieval.
 	 */
 	public ResourceRetriever(File cacheDir, ContentResolver resolve) {
 		cacheDirectory = Uri.parse("file://" + cacheDir.getAbsolutePath());
-		resolver=resolve;
+		resolver = resolve;
 	}
 
 	/**
@@ -43,6 +46,25 @@ public class ResourceRetriever {
 						+ (new File(resource.getPath())).getName());
 				try {
 					copyFile(new FileInputStream(new File(resource.getPath())),
+							new FileOutputStream(cachedResource));
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		} else if (resource.getScheme() == "android.resource") {
+			if (new File(cacheDirectory.getPath() + File.pathSeparator
+					+ resource.getLastPathSegment()).exists()) {
+				cachedResource = new File(cacheDirectory.getPath()
+						+ File.pathSeparator + resource.getLastPathSegment());
+			} else {
+				cachedResource = new File(cacheDirectory.getPath()
+						+ File.pathSeparator + resource.getLastPathSegment());
+				try {
+					copyFile(resolver.openInputStream(resource),
 							new FileOutputStream(cachedResource));
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
