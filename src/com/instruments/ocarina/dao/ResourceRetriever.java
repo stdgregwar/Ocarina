@@ -5,7 +5,7 @@ import java.io.*;
 import android.content.ContentResolver;
 import android.net.Uri;
 
-public class ResourceRetriever {
+public class ResourceRetriever implements IResourceRetriever {
 	private Uri cacheDirectory; // local location to cache files.
 	private ContentResolver resolver;
 
@@ -24,14 +24,10 @@ public class ResourceRetriever {
 		resolver = resolve;
 	}
 
-	/**
-	 * Method to get resource from multiple possible locations and cache it
-	 * locally.
-	 * 
-	 * @param resource
-	 *            Uri that describes the resource and location to to cached.
-	 * @return File object containing the path to the cached file.
+	/* (non-Javadoc)
+	 * @see com.instruments.ocarina.dao.IResourceRetriever#getResource(android.net.Uri)
 	 */
+	@Override
 	public File getResource(Uri resource) {
 		File cachedResource = null;
 		if (resource.getScheme() == "file") {

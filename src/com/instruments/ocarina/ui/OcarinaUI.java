@@ -1,5 +1,6 @@
 package com.instruments.ocarina.ui;
 
+import com.instruments.ocarina.service.ISoundPlayer;
 import com.instruments.ocarina.service.SoundPlayer;
 import android.os.Bundle;
 
@@ -10,9 +11,9 @@ import android.os.Bundle;
  */
 public abstract class OcarinaUI extends CommonMenu {
 	// TODO: Refactor common Ocarina functionality from Fancy.java
-	private SoundPlayer soundPlayer;
+	private ISoundPlayer soundPlayer;
 	
-	protected SoundPlayer getSoundPlayer() { return this.soundPlayer; }
+	protected ISoundPlayer getSoundPlayer() { return this.soundPlayer; }
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -10,22 +10,22 @@ import android.view.View;
 
 import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.R;
-import com.instruments.ocarina.service.SoundPlayer;
+import com.instruments.ocarina.service.ISoundPlayer;
 
 public class OcarinaButton extends View {
 	private Keys key;
 	private Drawable mIcon;
-	private SoundPlayer soundPlayer;
+	private ISoundPlayer soundPlayer;
 	
-	public OcarinaButton(Keys key, SoundPlayer soundPlayer, Context context) {
+	public OcarinaButton(Keys key, ISoundPlayer soundPlayer, Context context) {
 		this(key, soundPlayer, context, null, 0);
 	}
 	
-	public OcarinaButton(Keys key, SoundPlayer soundPlayer, Context context, AttributeSet attrs) {
+	public OcarinaButton(Keys key, ISoundPlayer soundPlayer, Context context, AttributeSet attrs) {
 		this(key, soundPlayer, context, attrs, 0);
 	}
 	
-	public OcarinaButton(Keys key, SoundPlayer soundPlayer, Context context, AttributeSet attrs, int defStyle) {
+	public OcarinaButton(Keys key, ISoundPlayer soundPlayer, Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		
 		this.key = key;

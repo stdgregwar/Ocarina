@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.R;
+import com.instruments.ocarina.dao.IResourceRetriever;
 import com.instruments.ocarina.dao.ResourceRetriever;
 import android.content.ContentResolver;
 import android.media.AudioManager;
@@ -14,9 +15,9 @@ import android.net.Uri;
 import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.dao.ResourceRetriever;
 
-public class SoundPlayer {
+public class SoundPlayer implements ISoundPlayer {
 	private SoundPool audioPlayer;
-	private ResourceRetriever resourceGet;
+	private IResourceRetriever resourceGet;
 	private HashMap<String, Integer> noteSounds;
 	private Context context;
 
@@ -80,13 +81,11 @@ public class SoundPlayer {
 		return audioFiles;
 	}
 	
-	/**
-	 * Method to detect when a key has been depressed.
-	 * 
-	 * @param key
-	 * 			Parameter representing the key that called the function.
+	/* (non-Javadoc)
+	 * @see com.instruments.ocarina.service.ISoundPlayer#addKey(com.instruments.ocarina.Keys)
 	 */
 
+	@Override
 	public void addKey(Keys key) {
 
 		if (key == Keys.ONE) {
@@ -104,13 +103,11 @@ public class SoundPlayer {
 		this.setNote();
 	}
 
-	/**
-	 * Method to detect when a key is no longer depressed.
-	 * 
-	 * @param key
-	 * 			Parameter representing the key that called the function.
+	/* (non-Javadoc)
+	 * @see com.instruments.ocarina.service.ISoundPlayer#removeKey(com.instruments.ocarina.Keys)
 	 */
 	
+	@Override
 	public void removeKey(Keys key) {
 
 		if (key == Keys.ONE) {
