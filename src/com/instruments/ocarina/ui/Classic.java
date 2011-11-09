@@ -1,6 +1,7 @@
 package com.instruments.ocarina.ui;
 
 import android.os.Bundle;
+
 import com.instruments.ocarina.R;
 
 public class Classic extends OcarinaUI {
@@ -9,13 +10,14 @@ public class Classic extends OcarinaUI {
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.classic);
 		
 		initializeComponents();
+		
+		setContentView(R.layout.classic);
 	}
 
 	private void initializeComponents() {
 		// TODO Auto-generated method stub
-					
+		
 	}
 }
