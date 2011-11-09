@@ -21,7 +21,7 @@ public class SoundPlayer {
          */
         public SoundPlayer(File cacheDir,ContentResolver resolver)
         {
-        	resourceGet = new ResourceRetriever(cacheDir);
+        	resourceGet = new ResourceRetriever(cacheDir,resolver);
         	audioPlayer = new SoundPool(2,AudioManager.STREAM_MUSIC,0);
         	noteSounds = loadAudioFiles();
         }
