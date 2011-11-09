@@ -3,12 +3,14 @@ package com.instruments.ocarina.service;
 import java.io.File;
 import java.util.HashMap;
 
+import android.content.ContentResolver;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.net.Uri;
+import android.util.Log;
+
 import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.dao.ResourceRetriever;
-
-import android.content.ContentResolver;
-import android.media.*;
-import android.net.Uri;
 
 public class SoundPlayer {
 	private SoundPool audioPlayer;
