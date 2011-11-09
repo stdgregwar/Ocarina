@@ -27,7 +27,6 @@ public class SoundPlayer {
          * Constructor for class. Also initializes the class vars.
          * 
          * @param cacheDir File object containing path to cache directory to pass to resource retriever.
-         * @param resolver ContentResolver passed from main Activity that allows resource retrieval.
          */
         public SoundPlayer(File cacheDir,ContentResolver resolver)
         {
@@ -47,7 +46,47 @@ public class SoundPlayer {
 			return new HashMap<String,Integer>();
         }
         
-     
+        public void addKey(int key){
+        	
+        	if(key==1){
+        		keyOne = true;
+        	}
+        	else if(key==2){
+        		keyTwo = true;
+        	}
+        	else if(key==3){
+        		keyThree = true;
+        	}
+        	else if(key==4){
+        		keyFour = true;
+        	}
+        	else if(key==5){
+        		keyFive = true;
+        	}
+        	
+        	this.setNote();
+        }
+        
+        public void removeKey(int key){
+        	
+        	if(key==1){
+        		keyOne = false;
+        	}
+        	else if(key==2){
+        		keyTwo = false;
+        	}
+        	else if(key==3){
+        		keyThree = false;
+        	}
+        	else if(key==4){
+        		keyFour = false;
+        	}
+        	else if(key==5){
+        		keyFive = false;
+        	}
+        	
+        	this.setNote();
+        }
         
         /**
          * Method to play specified soundID loaded in SoundPool.
