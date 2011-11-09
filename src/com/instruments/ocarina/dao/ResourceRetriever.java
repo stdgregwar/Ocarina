@@ -2,10 +2,12 @@ package com.instruments.ocarina.dao;
 
 import java.io.*;
 
+import android.content.ContentResolver;
 import android.net.Uri;
 
 public class ResourceRetriever {
 	private Uri cacheDirectory; //local location to cache files.
+	private ContentResolver resolver;
 
 	/**
 	 * Constructor for class.
@@ -14,8 +16,9 @@ public class ResourceRetriever {
 	 *            File object that should contain the directory to use for
 	 *            cache. Usually gotten with getCacheDir() of app context.
 	 */
-	public ResourceRetriever(File cacheDir) {
+	public ResourceRetriever(File cacheDir, ContentResolver resolve) {
 		cacheDirectory = Uri.parse("file://" + cacheDir.getAbsolutePath());
+		resolver=resolve;
 	}
 
 	/**
