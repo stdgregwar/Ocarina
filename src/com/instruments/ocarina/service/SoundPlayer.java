@@ -7,6 +7,7 @@ import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.dao.ResourceRetriever;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.media.*;
 import android.net.Uri;
 
@@ -31,7 +32,7 @@ public class SoundPlayer {
 	 *            File object containing path to cache directory to pass to
 	 *            resource retriever.
 	 */
-	public SoundPlayer(File cacheDir, ContentResolver resolver) {
+	public SoundPlayer(File cacheDir, ContentResolver resolver, Context ct) {
 		resourceGet = new ResourceRetriever(cacheDir, resolver);
 		audioPlayer = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
 		noteSounds = loadAudioFiles();
@@ -44,7 +45,8 @@ public class SoundPlayer {
 	 */
 	private HashMap<String, Integer> loadAudioFiles() {
 		HashMap<String,Integer> audioFiles = new HashMap<String,Integer>();
-		audioFiles.put("Do", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/do")).getAbsolutePath(),1));
+		//To fix later
+		/*audioFiles.put("Do", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/do")).getAbsolutePath(),1));
 		audioFiles.put("Fa#", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/fa_sh")).getAbsolutePath(),1));
 		audioFiles.put("Fa", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/fa")).getAbsolutePath(),1));
 		audioFiles.put("La#", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/la_sh")).getAbsolutePath(),1));
@@ -55,6 +57,7 @@ public class SoundPlayer {
 		audioFiles.put("So", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/so")).getAbsolutePath(),1));
 		audioFiles.put("Ti", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/ti")).getAbsolutePath(),1));
 		audioFiles.put("Dohi", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/dohi")).getAbsolutePath(),1));
+		*/
 		return audioFiles;
 	}
 	
