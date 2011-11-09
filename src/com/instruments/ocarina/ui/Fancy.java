@@ -25,7 +25,7 @@ public class Fancy extends OcarinaUI {
 		super.onCreate(savedInstanceState);
 		
 //		setContentView(createLayout());
-		OcarinaButton ocarinaButton = new OcarinaButton(Keys.ONE, getSoundPlayer(), this);
+		OcarinaButton ocarinaButton = new OcarinaButton(Keys.FIVE, getSoundPlayer(), this);
 		ocarinaButton.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 		setContentView(ocarinaButton);
 	}

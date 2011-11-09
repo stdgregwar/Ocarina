@@ -61,11 +61,13 @@ public class OcarinaButton extends View {
 	    		// make service call to recognize button call
 	    		soundPlayer.addKey(key);
 	        	break;
-	        case MotionEvent.ACTION_UP:
+	        default:
 	        	mIcon = getResources().getDrawable(R.drawable.fancy_button_a);
 	    		mIcon.setBounds(0, 0, mIcon.getIntrinsicWidth(), mIcon.getIntrinsicHeight());
 	    		// force a redraw
 	    		postInvalidate();
+	    		// make service call to recognize button call
+	    		soundPlayer.removeKey(key);
 	        	break;
         }
         return true;

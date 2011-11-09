@@ -108,17 +108,17 @@ public class SoundPlayer {
 	 * 			Parameter representing the key that called the function.
 	 */
 	
-	public void removeKey(int key) {
+	public void removeKey(Keys key) {
 
-		if (key == 1) {
+		if (key == Keys.ONE) {
 			keyOne = false;
-		} else if (key == 2) {
+		} else if (key == Keys.TWO) {
 			keyTwo = false;
-		} else if (key == 3) {
+		} else if (key == Keys.THREE) {
 			keyThree = false;
-		} else if (key == 4) {
+		} else if (key == Keys.FOUR) {
 			keyFour = false;
-		} else if (key == 5) {
+		} else if (key == Keys.FIVE) {
 			keyFive = false;
 		}
 
