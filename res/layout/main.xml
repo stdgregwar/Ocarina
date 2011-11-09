@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp"
         android:text="@string/classic" />
-
+
     <Button
         android:id="@+id/btnFancy"
         android:layout_width="wrap_content"
