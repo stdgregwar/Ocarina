@@ -44,6 +44,13 @@ public class SoundPlayer {
 		// TODO:Load each wave file for notes and load into note list.
 		return new HashMap<String, Integer>();
 	}
+	
+	/**
+	 * Method to detect when a key has been depressed.
+	 * 
+	 * @param key
+	 * 			Parameter representing the key that called the function.
+	 */
 
 	public void addKey(int key) {
 
@@ -62,6 +69,13 @@ public class SoundPlayer {
 		this.setNote();
 	}
 
+	/**
+	 * Method to detect when a key is no longer depressed.
+	 * 
+	 * @param key
+	 * 			Parameter representing the key that called the function.
+	 */
+	
 	public void removeKey(int key) {
 
 		if (key == 1) {
