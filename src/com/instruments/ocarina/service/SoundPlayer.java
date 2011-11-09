@@ -2,10 +2,8 @@ package com.instruments.ocarina.service;
 
 import java.io.File;
 import java.util.HashMap;
-import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.R;
 import com.instruments.ocarina.dao.IResourceRetriever;
-import com.instruments.ocarina.dao.ResourceRetriever;
 import android.content.ContentResolver;
 import android.media.AudioManager;
 import android.media.SoundPool;
