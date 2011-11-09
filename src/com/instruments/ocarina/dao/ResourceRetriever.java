@@ -35,16 +35,20 @@ public class ResourceRetriever {
 	public File getResource(Uri resource) {
 		File cachedResource = null;
 		if (resource.getScheme() == "file") {
+			//check for cache file existence and use cached copy.
 			if ((new File(cacheDirectory.getPath() + File.pathSeparator
 					+ (new File(resource.getPath())).getName())).exists()) {
 				cachedResource = new File(cacheDirectory.getPath()
 						+ File.pathSeparator
 						+ (new File(resource.getPath())).getName());
-			} else {
+			} 
+			//byte copy source to cache file.
+			else {
 				cachedResource = new File(cacheDirectory.getPath()
 						+ File.pathSeparator
 						+ (new File(resource.getPath())).getName());
 				try {
+					//open source file as inputstream and copy to cache file.
 					copyFile(new FileInputStream(new File(resource.getPath())),
 							new FileOutputStream(cachedResource));
 				} catch (FileNotFoundException e) {
@@ -56,14 +60,18 @@ public class ResourceRetriever {
 				}
 			}
 		} else if (resource.getScheme() == "android.resource") {
+			//check for cache file existence and use cached copy.
 			if (new File(cacheDirectory.getPath() + File.pathSeparator
 					+ resource.getLastPathSegment()).exists()) {
 				cachedResource = new File(cacheDirectory.getPath()
 						+ File.pathSeparator + resource.getLastPathSegment());
-			} else {
+			} 
+			//byte copy source to cache file.
+			else {
 				cachedResource = new File(cacheDirectory.getPath()
 						+ File.pathSeparator + resource.getLastPathSegment());
 				try {
+					//resolve built-in resource to inputstream to allow copying to cache.
 					copyFile(resolver.openInputStream(resource),
 							new FileOutputStream(cachedResource));
 				} catch (FileNotFoundException e) {
