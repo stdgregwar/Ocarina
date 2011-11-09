@@ -135,19 +135,19 @@ public class SoundPlayer {
 			soundID = noteSounds.get("Fa");
 		} else if (!keyOne && keyTwo && keyThree && keyFour) {
 			// Fa#
-			soundID = noteSounds.get("FaSH");
+			soundID = noteSounds.get("Fa#");
 		} else if (!keyOne && !keyTwo && keyThree && keyFour) {
 			// So
 			soundID = noteSounds.get("So");
 		} else if (!keyOne && keyTwo && keyThree && !keyFour) {
 			// So#
-			soundID = noteSounds.get("SoSH");
+			soundID = noteSounds.get("So#");
 		} else if (!keyOne && !keyTwo && keyThree && !keyFour) {
 			// La
 			soundID = noteSounds.get("La");
 		} else if (!keyOne && !keyTwo && !keyThree && keyFour) {
 			// La#
-			soundID = noteSounds.get("LaSH");
+			soundID = noteSounds.get("La#");
 		} else if (!keyOne && keyTwo && !keyThree && !keyFour) {
 			// Ti
 			soundID = noteSounds.get("Ti");
