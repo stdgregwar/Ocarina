@@ -1,8 +1,8 @@
 package com.instruments.ocarina.service;
 
 import java.io.File;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.HashMap;
+
 
 import com.instruments.ocarina.dao.ResourceRetriever;
 
@@ -12,7 +12,7 @@ import android.media.*;
 public class SoundPlayer {
         private SoundPool audioPlayer;
         private ResourceRetriever resourceGet;
-        private List<Integer> noteSounds;
+        private HashMap<String,Integer> noteSounds;
         
         // These represent the state of the buttons in the UI
     	// True = the button is depressed 
@@ -31,7 +31,7 @@ public class SoundPlayer {
         public SoundPlayer(File cacheDir,ContentResolver resolver)
         {
         	resourceGet = new ResourceRetriever(cacheDir,resolver);
-        	audioPlayer = new SoundPool(2,AudioManager.STREAM_MUSIC,0);
+        	audioPlayer = new SoundPool(1,AudioManager.STREAM_MUSIC,0);
         	noteSounds = loadAudioFiles();
         }
         
@@ -40,11 +40,13 @@ public class SoundPlayer {
          * 
          * @return returns List of soundIDs for the loaded note WAVs.
          */
-        private List<Integer> loadAudioFiles()
+        private HashMap<String,Integer> loadAudioFiles()
         {
         	//TODO:Load each wave file for notes and load into note list.
-			return new ArrayList<Integer>();
+			return new HashMap<String,Integer>();
         }
+        
+     
         
         /**
          * Method to play specified soundID loaded in SoundPool.
@@ -52,21 +54,15 @@ public class SoundPlayer {
          * @param soundID ID of sound to play.
          * @return ID of stream of playing sound. Can be used to control/stop sound.
          */
-        @SuppressWarnings("unused")
-		private int playSound(Integer soundID)
+		private void playSound(Integer soundID)
         {
-        	return audioPlayer.play(soundID, 1, 1, 1, -1, 1);
+        	if(soundID!=null){
+        	audioPlayer.play(soundID, 1, 1, 1, -1, 1);
+        	}else{
+        		audioPlayer.stop(1);
+        	}
         }
         
-        /**
-         * Method to stop a playing sound .
-         * 
-         * @param streamID ID of stream which is playing and should be stopped.
-         */
-        private void stopSound(int streamID)
-        {
-        	audioPlayer.stop(streamID);
-        }
         
         /**
          * Method to play note sound based on buttons that are down.
@@ -78,44 +74,60 @@ public class SoundPlayer {
     		//This takes the state of the UI in terms of which buttons are depressed
     		// and translates that into what note to play.
     		
+    		Integer soundID;
+    		
     		if(keyOne&&keyTwo&&keyThree&&keyFour){
-    			//DO
+    			//Do
+    			soundID = noteSounds.get("Do");
     		}
     		else if(keyOne&&!keyTwo&&keyThree&&keyFour){
-    			//RE
+    			//Re
+    			soundID = noteSounds.get("Re");
     		}
     		else if(keyOne&&keyTwo&&keyThree&&!keyFour){
     			//Mi
+    			soundID = noteSounds.get("Mi");
     		}
     		else if(keyOne&&!keyTwo&&keyThree&&!keyFour){
     			//Fa
+    			soundID = noteSounds.get("Fa");
     		}
     		else if(!keyOne&&keyTwo&&keyThree&&keyFour){
     			//Fa#
+    			soundID = noteSounds.get("Fa#");
     		}
     		else if(!keyOne&&!keyTwo&&keyThree&&keyFour){
     			//So
+    			soundID = noteSounds.get("So");
     		}
     		else if(!keyOne&&keyTwo&&keyThree&&!keyFour){
     			//So#
+    			soundID = noteSounds.get("So#");
     		}
     		else if(!keyOne&&!keyTwo&&keyThree&&!keyFour){
     			//La
+    			soundID = noteSounds.get("La");
     		}
     		else if(!keyOne&&!keyTwo&&!keyThree&&keyFour){
     			//La#
+    			soundID = noteSounds.get("La#");
     		}
     		else if(!keyOne&&keyTwo&&!keyThree&&!keyFour){
     			//Ti
+    			soundID = noteSounds.get("Ti");
     		}
     		else if(!keyOne&&!keyTwo&&!keyThree&&!keyFour&&keyFive){
     			//Dohi
+    			soundID = noteSounds.get("Dohi");
     		}
     		else{
     			//silence
+    			soundID = null;
     		}
     		
     		//sound playing method will be called here
+    		
+    		this.playSound(soundID);
     		
     	}
     
