@@ -28,6 +28,9 @@ public class SoundPlayer {
 	boolean keyThree;
 	boolean keyFour;
 	boolean keyFive;
+	
+	// int for tracking stream id
+	int i = 0;
 
 	/**
 	 * Constructor for class. Also initializes the class vars.
@@ -135,8 +138,11 @@ public class SoundPlayer {
 	private void playSound(Integer soundID) {
 		if (soundID != null) {
 			audioPlayer.play(soundID, 1, 1, 1, -1, 1);
+			
+			// index to track stream id
+			i++;
 		} else {
-			audioPlayer.stop(1);
+			audioPlayer.stop(i);
 		}
 	}
 
