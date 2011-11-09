@@ -16,6 +16,7 @@ import com.instruments.ocarina.service.SoundPlayer;
  * Fancy Ocarina UI
  *
  */
+@SuppressWarnings("unused")
 public class Fancy extends OcarinaUI {
 
 	@Override
