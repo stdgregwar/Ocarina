@@ -3,6 +3,7 @@ package com.instruments.ocarina.service;
 import java.io.File;
 import java.util.HashMap;
 
+import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.dao.ResourceRetriever;
 
 import android.content.ContentResolver;
@@ -64,17 +65,17 @@ public class SoundPlayer {
 	 * 			Parameter representing the key that called the function.
 	 */
 
-	public void addKey(int key) {
+	public void addKey(Keys key) {
 
-		if (key == 1) {
+		if (key == Keys.ONE) {
 			keyOne = true;
-		} else if (key == 2) {
+		} else if (key == Keys.TWO) {
 			keyTwo = true;
-		} else if (key == 3) {
+		} else if (key == Keys.THREE) {
 			keyThree = true;
-		} else if (key == 4) {
+		} else if (key == Keys.FOUR) {
 			keyFour = true;
-		} else if (key == 5) {
+		} else if (key == Keys.FIVE) {
 			keyFive = true;
 		}
 
