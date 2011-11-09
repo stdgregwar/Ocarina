@@ -2,14 +2,15 @@ package com.instruments.ocarina.service;
 
 import java.io.File;
 import java.util.HashMap;
-
+import com.instruments.ocarina.Keys;
+import com.instruments.ocarina.R;
+import com.instruments.ocarina.dao.ResourceRetriever;
 import android.content.ContentResolver;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.content.Context;
 import android.media.*;
 import android.net.Uri;
-
 import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.dao.ResourceRetriever;
 
@@ -17,6 +18,7 @@ public class SoundPlayer {
 	private SoundPool audioPlayer;
 	private ResourceRetriever resourceGet;
 	private HashMap<String, Integer> noteSounds;
+	private Context context;
 
 	// These represent the state of the buttons in the UI
 	// True = the button is depressed
@@ -38,6 +40,7 @@ public class SoundPlayer {
 		resourceGet = new ResourceRetriever(cacheDir, resolver);
 		audioPlayer = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
 		noteSounds = loadAudioFiles();
+		context = ct;
 	}
 
 	/**
@@ -60,6 +63,7 @@ public class SoundPlayer {
 		audioFiles.put("Ti", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/ti")).getAbsolutePath(),1));
 		audioFiles.put("Dohi", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/dohi")).getAbsolutePath(),1));
 		*/
+		audioFiles.put("Do", audioPlayer.load(context,R.raw.do_low,1));
 		return audioFiles;
 	}
 	
