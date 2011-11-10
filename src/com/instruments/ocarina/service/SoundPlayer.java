@@ -7,7 +7,6 @@ import com.instruments.ocarina.dao.IResourceRetriever;
 import android.content.ContentResolver;
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.content.Context;
 import android.media.*;
 import android.net.Uri;
 import android.util.Log;
@@ -19,7 +18,6 @@ public class SoundPlayer implements ISoundPlayer {
 	private SoundPool audioPlayer;
 	private IResourceRetriever resourceGet;
 	private HashMap<String, Integer> noteSounds;
-	private Context context;
 
 	// These represent the state of the buttons in the UI
 	// True = the button is depressed
@@ -40,10 +38,9 @@ public class SoundPlayer implements ISoundPlayer {
 	 *            File object containing path to cache directory to pass to
 	 *            resource retriever.
 	 */
-	public SoundPlayer(File cacheDir, ContentResolver resolver, Context ct) {
+	public SoundPlayer(File cacheDir, ContentResolver resolver) {
 		resourceGet = new ResourceRetriever(cacheDir, resolver);
 		audioPlayer = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
-		context = ct;
 		noteSounds = loadAudioFiles();
 	}
 
