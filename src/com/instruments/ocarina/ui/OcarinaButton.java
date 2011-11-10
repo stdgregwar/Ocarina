@@ -31,7 +31,7 @@ public class OcarinaButton extends View {
 		this.key = key;
 		this.soundPlayer = soundPlayer;
 		
-		mIcon = context.getResources().getDrawable(R.drawable.blow1);
+		mIcon = context.getResources().getDrawable(R.drawable.fancy_button_a);
 		mIcon.setBounds(0, 0, mIcon.getIntrinsicWidth(), mIcon.getIntrinsicHeight());
 	}
 	

@@ -10,6 +10,8 @@ import android.media.SoundPool;
 import android.content.Context;
 import android.media.*;
 import android.net.Uri;
+import android.util.Log;
+
 import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.dao.ResourceRetriever;
 
@@ -52,8 +54,7 @@ public class SoundPlayer implements ISoundPlayer {
 	 */
 	private HashMap<String, Integer> loadAudioFiles() {
 		HashMap<String,Integer> audioFiles = new HashMap<String,Integer>();
-		//To fix later
-		/*audioFiles.put("Do", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/do_low")).getAbsolutePath(),1));
+		audioFiles.put("Do", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/do_low")).getAbsolutePath(),1));
 		audioFiles.put("Fa#", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/fa_sh")).getAbsolutePath(),1));
 		audioFiles.put("Fa", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/fa")).getAbsolutePath(),1));
 		audioFiles.put("La#", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/la_sh")).getAbsolutePath(),1));
@@ -64,18 +65,6 @@ public class SoundPlayer implements ISoundPlayer {
 		audioFiles.put("So", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/so")).getAbsolutePath(),1));
 		audioFiles.put("Ti", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/ti")).getAbsolutePath(),1));
 		audioFiles.put("Dohi", audioPlayer.load(resourceGet.getResource(Uri.parse("android.resource://com.instruments.ocarina/raw/dohi")).getAbsolutePath(),1));
-		*/
-		audioFiles.put("Do", audioPlayer.load(context,R.raw.do_low,1));
-		audioFiles.put("Fa#", audioPlayer.load(context,R.raw.fa_sh,1));
-		audioFiles.put("Fa", audioPlayer.load(context,R.raw.fa,1));
-		audioFiles.put("La#", audioPlayer.load(context,R.raw.la_sh,1));
-		audioFiles.put("La", audioPlayer.load(context,R.raw.la,1));
-		audioFiles.put("Mi", audioPlayer.load(context,R.raw.mi,1));
-		audioFiles.put("Re", audioPlayer.load(context,R.raw.re,1));
-		audioFiles.put("So#", audioPlayer.load(context,R.raw.so_sh,1));
-		audioFiles.put("So", audioPlayer.load(context,R.raw.so,1));
-		audioFiles.put("Ti", audioPlayer.load(context,R.raw.ti,1));
-		audioFiles.put("Dohi", audioPlayer.load(context,R.raw.dohi,1));
 		return audioFiles;
 	}
 	
@@ -106,6 +95,7 @@ public class SoundPlayer implements ISoundPlayer {
 	
 	public void removeKey(Keys key) {
 
+		Log.w("note",key.toString());
 		if (key == Keys.ONE) {
 			keyOne = false;
 		} else if (key == Keys.TWO) {

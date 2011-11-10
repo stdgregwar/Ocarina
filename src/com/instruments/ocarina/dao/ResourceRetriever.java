@@ -4,6 +4,7 @@ import java.io.*;
 
 import android.content.ContentResolver;
 import android.net.Uri;
+import android.util.Log;
 
 public class ResourceRetriever implements IResourceRetriever {
 	private Uri cacheDirectory; // local location to cache files.
@@ -29,7 +30,7 @@ public class ResourceRetriever implements IResourceRetriever {
 	 */
 	public File getResource(Uri resource) {
 		File cachedResource = null;
-		if (resource.getScheme() == "file") {
+		if (resource.getScheme().equals("file")) {
 			//check for cache file existence and use cached copy.
 			if ((new File(cacheDirectory.getPath() + File.pathSeparator
 					+ (new File(resource.getPath())).getName())).exists()) {
@@ -54,7 +55,7 @@ public class ResourceRetriever implements IResourceRetriever {
 					e.printStackTrace();
 				}
 			}
-		} else if (resource.getScheme() == "android.resource") {
+		} else if (resource.getScheme().equals("android.resource")) {
 			//check for cache file existence and use cached copy.
 			if (new File(cacheDirectory.getPath() + File.pathSeparator
 					+ resource.getLastPathSegment()).exists()) {
