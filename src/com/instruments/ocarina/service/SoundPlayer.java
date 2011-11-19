@@ -92,7 +92,7 @@ public class SoundPlayer implements ISoundPlayer {
 	
 	public void removeKey(Keys key) {
 
-		Log.w("note",key.toString());
+		Log.d("note",key.toString());
 		if (key == Keys.ONE) {
 			keyOne = false;
 		} else if (key == Keys.TWO) {

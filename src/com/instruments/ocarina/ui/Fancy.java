@@ -1,6 +1,8 @@
 package com.instruments.ocarina.ui;
 
 import android.os.Bundle;
+
+import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.R;
 
 /**
@@ -15,14 +17,15 @@ public class Fancy extends OcarinaUI {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.fancy);
-		initializeOcarinaButton(R.id.ocarinaHole1);
-		initializeOcarinaButton(R.id.ocarinaHole2);
-		initializeOcarinaButton(R.id.ocarinaHole3);
-		initializeOcarinaButton(R.id.ocarinaHole4);		
+		initializeOcarinaButton(R.id.ocarinaHole1, Keys.ONE);
+		initializeOcarinaButton(R.id.ocarinaHole2, Keys.TWO);
+		initializeOcarinaButton(R.id.ocarinaHole3, Keys.THREE);
+		initializeOcarinaButton(R.id.ocarinaHole4, Keys.FOUR);		
 	}
 
-	private void initializeOcarinaButton (int buttonID) {
+	private void initializeOcarinaButton (int buttonID, Keys key) {
 		OcarinaButton button = (OcarinaButton) findViewById(buttonID);
 		button.setSoundPlayer(super.getSoundPlayer());
+		button.setKey(key);
 	}
 }
