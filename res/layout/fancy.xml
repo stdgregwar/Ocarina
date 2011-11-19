@@ -3,42 +3,37 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-
-    <TableLayout
-        android:id="@+id/tblFancy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="222dp" >
-
-        <TableRow
-            android:id="@+id/fancyRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/fancyRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/fancyRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/fancyRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-        </TableRow>
-    </TableLayout>
     
+
+	<com.instruments.ocarina.ui.OcarinaButton
+	    android:id="@+id/ocarinaHole1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentTop="true" />
+	<com.instruments.ocarina.ui.OcarinaButton
+	    android:id="@+id/ocarinaHole2"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentTop="true"
+	    android:layout_marginLeft="100dp" />
+
+	<com.instruments.ocarina.ui.OcarinaButton
+	    android:id="@+id/ocarinaHole3"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentTop="true"
+	    android:layout_marginTop="250dp" />
+		
+	<com.instruments.ocarina.ui.OcarinaButton
+	    android:id="@+id/ocarinaHole4"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentTop="true"
+	    android:layout_marginLeft="100dp" 
+	    android:layout_marginTop="250dp" />
+		
 </RelativeLayout>

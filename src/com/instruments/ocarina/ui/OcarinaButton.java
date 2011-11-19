@@ -13,48 +13,53 @@ import com.instruments.ocarina.R;
 import com.instruments.ocarina.service.ISoundPlayer;
 
 public class OcarinaButton extends View {
+	
+	private Drawable drawableIcon;
 	private Keys key;
-	private Drawable mIcon;
 	private ISoundPlayer soundPlayer;
 	
-	public OcarinaButton(Keys key, ISoundPlayer soundPlayer, Context context) {
-		this(key, soundPlayer, context, null, 0);
+	public void setKey(Keys key) {
+		this.key = key;
+	}
+
+	public void setSoundPlayer(ISoundPlayer soundPlayer) {
+		this.soundPlayer = soundPlayer;
+	}
+
+//	public OcarinaButton(Context context) {
+//		this(context, null, 0);
+//	}
+
+	public OcarinaButton(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
 	}
 	
-	public OcarinaButton(Keys key, ISoundPlayer soundPlayer, Context context, AttributeSet attrs) {
-		this(key, soundPlayer, context, attrs, 0);
-	}
-	
-	public OcarinaButton(Keys key, ISoundPlayer soundPlayer, Context context, AttributeSet attrs, int defStyle) {
+	public OcarinaButton(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		
-		this.key = key;
-		this.soundPlayer = soundPlayer;
-		
-		mIcon = context.getResources().getDrawable(R.drawable.fancy_button_a);
-		mIcon.setBounds(0, 0, mIcon.getIntrinsicWidth(), mIcon.getIntrinsicHeight());
+		drawableIcon = context.getResources().getDrawable(R.drawable.button_up);
+		drawableIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
 	}
 	
 	@Override
     public void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
         
-//		Log.d("yeah", Integer.toString(canvas.getHeight()));
-//		Log.d("yeah", Integer.toString(canvas.getWidth()));
 		
         canvas.save();
         //canvas.translate(posX, posY);
-        mIcon.draw(canvas);
+        drawableIcon.draw(canvas);
         canvas.restore();
     }
 
 	@Override
     public boolean onTouchEvent(MotionEvent ev) {
+		// TODO: refine motion event actions
         switch(ev.getAction())
         {
 	        case MotionEvent.ACTION_DOWN:
-	        	mIcon = getResources().getDrawable(R.drawable.fancy_button_b);
-	    		mIcon.setBounds(0, 0, mIcon.getIntrinsicWidth(), mIcon.getIntrinsicHeight());
+	        	drawableIcon = getResources().getDrawable(R.drawable.button_down);
+	    		drawableIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
 	    		// force a redraw
 	    		postInvalidate();
 	    		
@@ -62,8 +67,8 @@ public class OcarinaButton extends View {
 	    		soundPlayer.addKey(key);
 	        	break;
 	        default:
-	        	mIcon = getResources().getDrawable(R.drawable.fancy_button_a);
-	    		mIcon.setBounds(0, 0, mIcon.getIntrinsicWidth(), mIcon.getIntrinsicHeight());
+	        	drawableIcon = getResources().getDrawable(R.drawable.button_up);
+	    		drawableIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
 	    		// force a redraw
 	    		postInvalidate();
 	    		// make service call to recognize button call

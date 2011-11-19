@@ -13,26 +13,21 @@ public final class R {
     public static final class drawable {
         public static final int blow1=0x7f020000;
         public static final int blow2=0x7f020001;
-        public static final int bs1=0x7f020002;
-        public static final int bs2=0x7f020003;
-        public static final int classicbase=0x7f020004;
-        public static final int fancy_button_a=0x7f020005;
-        public static final int fancy_button_b=0x7f020006;
-        public static final int fancybase=0x7f020007;
-        public static final int ic_launcher=0x7f020008;
+        public static final int button_down=0x7f020002;
+        public static final int button_up=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
     }
     public static final class id {
-        public static final int btnClassic=0x7f070006;
-        public static final int btnFancy=0x7f070007;
-        public static final int classic=0x7f070009;
-        public static final int fancy=0x7f07000a;
-        public static final int fancyRow1=0x7f070001;
-        public static final int fancyRow2=0x7f070002;
-        public static final int fancyRow3=0x7f070003;
-        public static final int fancyRow4=0x7f070004;
-        public static final int start=0x7f070008;
-        public static final int tblFancy=0x7f070000;
-        public static final int textView1=0x7f070005;
+        public static final int btnClassic=0x7f070005;
+        public static final int btnFancy=0x7f070006;
+        public static final int classic=0x7f070008;
+        public static final int fancy=0x7f070009;
+        public static final int ocarinaHole1=0x7f070000;
+        public static final int ocarinaHole2=0x7f070001;
+        public static final int ocarinaHole3=0x7f070002;
+        public static final int ocarinaHole4=0x7f070003;
+        public static final int start=0x7f070007;
+        public static final int textView1=0x7f070004;
     }
     public static final class layout {
         public static final int classic=0x7f030000;
