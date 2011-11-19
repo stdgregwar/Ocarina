@@ -14,8 +14,22 @@ import com.instruments.ocarina.dao.IResourceRetriever;
 public class SongPlayer {
 	private IResourceRetriever resourceGet;
 	private AutomationController controller;
-	private Integer bpm;
-	private Map<String,Timer> noteList;
+	private Map<String,Notes> noteList;
+	
+	private enum Notes {
+		QUARTER(4),HALF(2),WHOLE(1),EIGHTH(8);
+		
+		private Integer value;
+		private Notes(Integer i){
+			value=i;
+		}
+		public Integer getValue(){
+			return value;
+		}
+		public void setValue(Integer i) {
+			value=i;
+		}
+	}
 	
 	public SongPlayer() {
 		//
@@ -25,8 +39,8 @@ public class SongPlayer {
 		noteList = decodeSong(resourceGet.getResource(song));
 	}
 	
-	private Map<String,Timer> decodeSong(File songFile) {
-		bpm = 0;//set value based on decoded value
-		return new HashMap<String,Timer>();
+	private Map<String,Notes> decodeSong(File songFile) {
+		//set value of enums based on decoded bpm here
+		return new HashMap<String,Notes>();
 	}
 }
