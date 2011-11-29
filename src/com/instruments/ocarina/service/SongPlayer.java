@@ -14,9 +14,14 @@ import com.instruments.ocarina.dao.IResourceRetriever;
 public class SongPlayer {
 	private IResourceRetriever resourceGet;
 	private AutomationController controller;
-	private Map<String,Notes> noteList;
+	private Note note;
+	private List<Note> noteList;
+	private int index;
+	private Timer timer = new Timer();
+	private long delay;
+	private int divisor;
 	
-	private enum Notes {
+	public enum Notes {
 		QUARTER(4),HALF(2),WHOLE(1),EIGHTH(8);
 		
 		private Integer value;
@@ -31,16 +36,30 @@ public class SongPlayer {
 		}
 	}
 	
-	public SongPlayer() {
-		//
-	}
-	
 	public void playSong(Uri song) {
 		noteList = decodeSong(resourceGet.getResource(song));
+		index = 0;
+		
+		this.nextNote();
 	}
 	
-	private Map<String,Notes> decodeSong(File songFile) {
+	private void nextNote(){
+		note = noteList.get(index);
+		divisor = note.getNoteType();
+		delay = 1000/note.getNoteType();
+		index++;
+		
+		if(!(index>noteList.size())){
+			
+			
+			timer.schedule(this.nextNote(), )
+		}
+	}
+	
+	private List<Note> decodeSong(File songFile) {
 		//set value of enums based on decoded bpm here
-		return new HashMap<String,Notes>();
+		String pitch;
+		Notes nt;
+		return new ArrayList<Note>();
 	}
 }
