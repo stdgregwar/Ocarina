@@ -10,14 +10,12 @@ import android.os.Bundle;
  * 
  */
 public abstract class OcarinaUI extends CommonMenu {
-	// TODO: Refactor common Ocarina functionality from Fancy.java
 	private ISoundPlayer soundPlayer;
 	
 	protected ISoundPlayer getSoundPlayer() { return this.soundPlayer; }
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
 		soundPlayer = new SoundPlayer(this.getCacheDir(), this.getContentResolver());
