@@ -18,6 +18,7 @@ public abstract class OcarinaButton extends View {
 	protected Drawable drawableIcon;
 	protected int buttonUp;
 	protected int buttonDown;
+	private boolean isPressed;
 	
 	public void setKey(Keys key) {
 		this.key = key;
@@ -34,6 +35,7 @@ public abstract class OcarinaButton extends View {
 	
 	public OcarinaButton(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
+		isPressed = false;
 	}
 	
 	@Override
@@ -54,25 +56,47 @@ public abstract class OcarinaButton extends View {
         switch(ev.getAction())
         {
 	        case MotionEvent.ACTION_DOWN:
-	        	// set drawableIcon depending on the key (Keys.ONE is the blow hole, all others are normal keys)
-			
-			drawableIcon = getResources().getDrawable(buttonDown);
-	    		drawableIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
-	    		// force a redraw
-	    		postInvalidate();
-	    		
-	    		// make service call to recognize button call
-	    		soundPlayer.addKey(key);
+	        	// added for demonstration
+	        	if (isPressed) {
+	        		// reset drawableIcon state depending on the key (see above)
+		        	drawableIcon = getResources().getDrawable(buttonUp);
+		    		drawableIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
+		    		// force a redraw
+		    		postInvalidate();
+		    		// make service call to recognize button call
+		    		soundPlayer.removeKey(key);
+	        	} else {
+	        		// set drawableIcon depending on the key (Keys.ONE is the blow hole, all others are normal keys)
+	        		drawableIcon = getResources().getDrawable(buttonDown);
+		    		drawableIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
+		    		// force a redraw
+		    		postInvalidate();
+		    		
+		    		// make service call to recognize button call
+		    		soundPlayer.addKey(key);
+	        	}
+	        	// toggle state
+	        	isPressed = !isPressed;
+	        	
+	        	
+//	        	// set drawableIcon depending on the key (Keys.ONE is the blow hole, all others are normal keys)
+//        		drawableIcon = getResources().getDrawable(buttonDown);
+//	    		drawableIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
+//	    		// force a redraw
+//	    		postInvalidate();
+//	    		
+//	    		// make service call to recognize button call
+//	    		soundPlayer.addKey(key);
 	        	break;
-	        default:
-	        	// reset drawableIcon state depending on the key (see above)
-	        	drawableIcon = getResources().getDrawable(buttonUp);
-	    		drawableIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
-	    		// force a redraw
-	    		postInvalidate();
-	    		// make service call to recognize button call
-	    		soundPlayer.removeKey(key);
-	        	break;
+//	        default:
+//	        	// reset drawableIcon state depending on the key (see above)
+//	        	drawableIcon = getResources().getDrawable(buttonUp);
+//	    		drawableIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
+//	    		// force a redraw
+//	    		postInvalidate();
+//	    		// make service call to recognize button call
+//	    		soundPlayer.removeKey(key);
+//	        	break;
         }
         return true;
     }
