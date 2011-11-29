@@ -17,11 +17,11 @@ public class Fancy extends OcarinaUI {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.fancy);
-		initializeOcarinaButton(R.id.ocarinaBlowHole, Keys.ONE);
-		initializeOcarinaButton(R.id.ocarinaHoleTopLeft, Keys.TWO);
-		initializeOcarinaButton(R.id.ocarinaHoleTopRight, Keys.THREE);
-		initializeOcarinaButton(R.id.ocarinaHoleBottomLeft, Keys.FOUR);
-		initializeOcarinaButton(R.id.ocarinaHoleBottomRight, Keys.FIVE);
+		initializeOcarinaButton(R.id.ocarinaHoleTopLeft, Keys.ONE);
+		initializeOcarinaButton(R.id.ocarinaHoleTopRight, Keys.TWO);
+		initializeOcarinaButton(R.id.ocarinaHoleBottomLeft, Keys.THREE);
+		initializeOcarinaButton(R.id.ocarinaHoleBottomRight, Keys.FOUR);
+		initializeOcarinaButton(R.id.ocarinaBlowHole, Keys.FIVE);
 	}
 
 	private void initializeOcarinaButton (int buttonID, Keys key) {
