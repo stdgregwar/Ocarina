@@ -77,7 +77,7 @@ public abstract class OcarinaButton extends View {
 	        	}
 	        	// toggle state
 	        	isPressed = !isPressed;
-	        	
+	        	// end demo code
 	        	
 //	        	// set drawableIcon depending on the key (Keys.ONE is the blow hole, all others are normal keys)
 //        		drawableIcon = getResources().getDrawable(buttonDown);
