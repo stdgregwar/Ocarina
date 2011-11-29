@@ -4,36 +4,48 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
     
-
-	<com.instruments.ocarina.ui.OcarinaButton
-	    android:id="@+id/ocarinaHole1"
+	<com.instruments.ocarina.ui.FingerHole
+	    android:id="@+id/ocarinaHoleTopLeft"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentLeft="true"
-	    android:layout_alignParentTop="true" />
-	<com.instruments.ocarina.ui.OcarinaButton
-	    android:id="@+id/ocarinaHole2"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentLeft="true"
-	    android:layout_alignParentTop="true"
-	    android:layout_marginLeft="100dp" />
-
-	<com.instruments.ocarina.ui.OcarinaButton
-	    android:id="@+id/ocarinaHole3"
+	    android:layout_alignParentTop="true" 
+	    android:layout_marginLeft="60dp"
+	    android:layout_marginTop="100dp" />
+	<com.instruments.ocarina.ui.FingerHole
+	    android:id="@+id/ocarinaHoleTopRight"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentLeft="true"
 	    android:layout_alignParentTop="true"
-	    android:layout_marginTop="250dp" />
+	    android:layout_marginLeft="200dp" 
+	    android:layout_marginTop="100dp" />
+
+	<com.instruments.ocarina.ui.FingerHole
+	    android:id="@+id/ocarinaHoleBottomLeft"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentTop="true"
+	    android:layout_marginLeft="60dp"
+	    android:layout_marginTop="300dp" />
 		
-	<com.instruments.ocarina.ui.OcarinaButton
-	    android:id="@+id/ocarinaHole4"
+	<com.instruments.ocarina.ui.FingerHole
+	    android:id="@+id/ocarinaHoleBottomRight"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentLeft="true"
 	    android:layout_alignParentTop="true"
-	    android:layout_marginLeft="100dp" 
-	    android:layout_marginTop="250dp" />
+	    android:layout_marginLeft="200dp" 
+	    android:layout_marginTop="300dp" />
+	
+	<com.instruments.ocarina.ui.BlowHole
+	    android:id="@+id/ocarinaBlowHole"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentTop="true"
+	    android:layout_marginLeft="130dp" 
+	    android:layout_marginTop="450dp" />
 		
 </RelativeLayout>
