@@ -27,7 +27,7 @@ public class Fancy extends OcarinaUI {
 	private void initializeOcarinaButton (int buttonID, Keys key) {
 		OcarinaButton button;
 		// cast to correct type
-		if (key == Keys.ONE) {
+		if (key == Keys.FIVE) {
 			button = (BlowHole) findViewById(buttonID);
 		} else {
 			button = (FingerHole) findViewById(buttonID);
