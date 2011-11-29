@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Timer;
+import java.util.TimerTask;
 
 import android.net.Uri;
 
@@ -19,7 +20,8 @@ public class SongPlayer {
 	private int index;
 	private Timer timer = new Timer();
 	private long delay;
-	private int divisor;
+	private Notes divisor;
+	private NoteTask task;
 	
 	public enum Notes {
 		QUARTER(4),HALF(2),WHOLE(1),EIGHTH(8);
@@ -46,13 +48,20 @@ public class SongPlayer {
 	private void nextNote(){
 		note = noteList.get(index);
 		divisor = note.getNoteType();
-		delay = 1000/note.getNoteType();
+		delay = 1000/divisor.getValue();
 		index++;
 		
 		if(!(index>noteList.size())){
 			
 			
-			timer.schedule(this.nextNote(), )
+			timer.schedule(task, delay);
+		}
+	}
+	
+	class NoteTask extends TimerTask {
+		public void run(){
+			nextNote();
+			timer.cancel();
 		}
 	}
 	
