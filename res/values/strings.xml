@@ -7,5 +7,6 @@
     <string name="classic">Classic Ocarina</string>
     <string name="fancy">Fancy Ocarina</string>
     <string name="welcome">Welcome to the English Pendant Style Ocarina</string>
+    <string name="songplayer">Play Song</string>
 
 </resources>

@@ -3,6 +3,7 @@
     <item android:id="@+id/start" android:title="@string/startpage"></item>
     <item android:id="@+id/classic" android:title="@string/classic"></item>
     <item android:id="@+id/fancy" android:title="@string/fancy"></item>
+    <item android:id="@+id/songplayer" android:title="@string/songplayer"></item>
 
     
 

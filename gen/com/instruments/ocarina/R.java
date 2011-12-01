@@ -30,6 +30,7 @@ public final class R {
         public static final int ocarinaHoleBottomRight=0x7f070003;
         public static final int ocarinaHoleTopLeft=0x7f070000;
         public static final int ocarinaHoleTopRight=0x7f070001;
+        public static final int songplayer=0x7f07000b;
         public static final int start=0x7f070008;
         public static final int textView1=0x7f070005;
     }
@@ -59,6 +60,7 @@ public final class R {
         public static final int classic=0x7f050003;
         public static final int fancy=0x7f050004;
         public static final int hello=0x7f050000;
+        public static final int songplayer=0x7f050006;
         public static final int startpage=0x7f050002;
         public static final int welcome=0x7f050005;
     }

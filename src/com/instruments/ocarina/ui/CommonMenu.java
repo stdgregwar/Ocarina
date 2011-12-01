@@ -37,6 +37,9 @@ public class CommonMenu extends Activity {
 			case R.id.fancy:
 				launchActivity(Fancy.class);
 				break;
+			case R.id.songplayer:
+				// TODO: dont break stuff. and make the song player.
+				break;
 		}
 		return true;
 	}
