@@ -9,6 +9,7 @@ import java.util.TimerTask;
 import android.net.Uri;
 
 import com.instruments.ocarina.dao.IResourceRetriever;
+import com.instruments.ocarina.ui.OcarinaButton;
 
 public class SongPlayer {
 	private IResourceRetriever resourceGet;
@@ -21,7 +22,7 @@ public class SongPlayer {
 	private Notes divisor;
 	private NoteTask task;
 	
-	public SongPlayer(ArrayList buttons){
+	public SongPlayer(ArrayList<OcarinaButton> buttons){
 		controller = new AutomationController(buttons);
 	}
 	

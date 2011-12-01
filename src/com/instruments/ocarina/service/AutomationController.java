@@ -2,10 +2,12 @@ package com.instruments.ocarina.service;
 
 import java.util.ArrayList;
 
+import com.instruments.ocarina.ui.OcarinaButton;
+
 public class AutomationController {
-	private ArrayList UIButtons;
+	private ArrayList<OcarinaButton> UIButtons;
 	
-	public AutomationController(ArrayList buttons) {
+	public AutomationController(ArrayList<OcarinaButton> buttons) {
 		UIButtons = buttons;
 	}
 	
