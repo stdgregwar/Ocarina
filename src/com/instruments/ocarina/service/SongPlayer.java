@@ -19,25 +19,31 @@ public class SongPlayer {
 	private int index;
 	private Timer timer = new Timer();
 	private long delay;
-	private Notes divisor;
 	private NoteTask task;
 	
 	public SongPlayer(ArrayList<OcarinaButton> buttons){
 		controller = new AutomationController(buttons);
 	}
 	
-	public enum Notes {
+	public enum Note {
 		QUARTER(4),HALF(2),WHOLE(1),EIGHTH(8);
 		
-		private Integer value;
-		private Notes(Integer i){
-			value=i;
+		private Integer type;
+		private String pitch;
+		private Note(Integer i){
+			type=i;
 		}
-		public Integer getValue(){
-			return value;
+		public Integer getNoteType(){
+			return type;
 		}
-		public void setValue(Integer i) {
-			value=i;
+		public void setNoteType(Integer i) {
+			type=i;
+		}
+		public String getPitch(){
+			return pitch;
+		}
+		public void setPitch(String i) {
+			pitch=i;
 		}
 	}
 	
@@ -50,8 +56,7 @@ public class SongPlayer {
 	
 	private void nextNote(){
 		note = noteList.get(index);
-		divisor = note.getNoteType();
-		delay = 1000/divisor.getValue();
+		delay = 1000/note.getNoteType();
 		
 		controller.setCue(note.getPitch());
 		
@@ -73,7 +78,7 @@ public class SongPlayer {
 	private List<Note> decodeSong(File songFile) {
 		//set value of enums based on decoded bpm here
 		String pitch;
-		Notes nt;
+		Note nt;
 		return new ArrayList<Note>();
 	}
 }
