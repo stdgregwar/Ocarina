@@ -45,6 +45,10 @@ public class SongPlayer {
 		public void setPitch(String i) {
 			pitch=i;
 		}
+		public Note getSelfWithPitch(String s){
+			pitch=s;
+			return this;
+		}
 	}
 	
 	public void playSong(Uri song) {
@@ -77,8 +81,9 @@ public class SongPlayer {
 	
 	private List<Note> decodeSong(File songFile) {
 		//set value of enums based on decoded bpm here
-		String pitch;
-		Note nt;
+		//hardcoding a song in here because we ran out of time to retrieve a song.
+		ArrayList<Note> maryhadalittlelamb = new ArrayList<Note>();
+		maryhadalittlelamb.add(Note.QUARTER.getSelfWithPitch("c"));		
 		return new ArrayList<Note>();
 	}
 }
