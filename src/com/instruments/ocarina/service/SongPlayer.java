@@ -52,7 +52,9 @@ public class SongPlayer {
 	}
 	
 	public void playSong(Uri song) {
-		noteList = decodeSong(resourceGet.getResource(song));
+		//noteList = decodeSong(resourceGet.getResource(song));
+		//hardcoding song. ran out of time.
+		noteList = decodeSong(new File(""));
 		index = 0;
 		
 		this.nextNote();
