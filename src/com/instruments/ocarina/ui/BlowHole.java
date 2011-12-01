@@ -19,9 +19,12 @@ public class BlowHole extends OcarinaButton {
 		// set the icon
 		drawableIcon = context.getResources().getDrawable(buttonUp);
 		drawableIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
-		
+
 		// set the overlay icon
-		drawableOverlayIcon = context.getResources().getDrawable(R.drawable.glow_blow);
+		buttonGlow = R.drawable.glow_blow;
+		
+		// overlay is off by default
+		drawableOverlayIcon = context.getResources().getDrawable(R.drawable.glow_off);
 		drawableOverlayIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
 	}
 

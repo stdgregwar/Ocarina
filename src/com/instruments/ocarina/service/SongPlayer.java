@@ -72,6 +72,8 @@ public class SongPlayer {
 		index++;
 		if(!(index >= noteList.size())){
 			timer.schedule(task, delay);
+		} else {
+			controller.clearNotes();
 		}
 	}
 	

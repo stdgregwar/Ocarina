@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
 import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.R;
 import com.instruments.ocarina.service.ISoundPlayer;
@@ -20,6 +21,7 @@ public abstract class OcarinaButton extends View {
 	protected Drawable drawableOverlayIcon;
 	protected int buttonUp;
 	protected int buttonDown;
+	protected int buttonGlow;
 	private boolean isPressed;
 	
 	public void setKey(Keys key) {
@@ -38,7 +40,9 @@ public abstract class OcarinaButton extends View {
 	 * Shows an overlay on the button, signaling the user to press the key
 	 */
 	public void showOverlay() {
-		drawableOverlayIcon.setAlpha(255);
+		drawableOverlayIcon = getResources().getDrawable(buttonGlow);
+		drawableOverlayIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
+		
 		// force redraw
 		postInvalidate();
 	}
@@ -47,7 +51,9 @@ public abstract class OcarinaButton extends View {
 	 * Hides the overlay on the button
 	 */
 	public void hideOverlay() {
-		drawableOverlayIcon.setAlpha(0);
+		drawableOverlayIcon = getResources().getDrawable(R.drawable.glow_off);
+		drawableOverlayIcon.setBounds(0, 0, drawableIcon.getIntrinsicWidth(), drawableIcon.getIntrinsicHeight());
+		
 		// force redraw
 		postInvalidate();
 	}
@@ -70,14 +76,12 @@ public abstract class OcarinaButton extends View {
         canvas.save();
         //canvas.translate(posX, posY);
         drawableIcon.draw(canvas);
-        drawableOverlayIcon.setAlpha(0);
         drawableOverlayIcon.draw(canvas);
         canvas.restore();
     }
 
 	@Override
     public boolean onTouchEvent(MotionEvent ev) {
-		// TODO: refine motion event actions
 		
         switch(ev.getAction())
         {
