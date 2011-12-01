@@ -13,7 +13,7 @@ import com.instruments.ocarina.R;
  */
 public class Fancy extends OcarinaUI {
 
-	ArrayList<OcarinaButton> buttonList;
+	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
