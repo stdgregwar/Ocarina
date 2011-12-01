@@ -6,7 +6,7 @@ import com.instruments.ocarina.R;
 
 
 /**
- * Note to reviewer: This activity was delayed to Sprint 2, so it's still in barebones form
+ *  This activity was unable to be completed before the end of the second sprint
  * 
  */
 public class Classic extends OcarinaUI {
