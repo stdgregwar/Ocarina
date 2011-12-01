@@ -17,36 +17,59 @@ public class AutomationController {
 		clearNotes();
 		if (pitch == "Do") {
 			// Do: keyOne && keyTwo && keyThree && keyFour
+			makeVisible(Keys.ONE);
+			makeVisible(Keys.TWO);
+			makeVisible(Keys.THREE);
+			makeVisible(Keys.FOUR);
 			
 		} else if (pitch == "Re") {
 			// Re: keyOne && !keyTwo && keyThree && keyFour
+			makeVisible(Keys.ONE);
+			makeVisible(Keys.THREE);
+			makeVisible(Keys.FOUR);
 			
 		} else if (pitch == "Mi") {
 			// Mi: keyOne && keyTwo && keyThree && !keyFour
+			makeVisible(Keys.ONE);
+			makeVisible(Keys.TWO);
+			makeVisible(Keys.THREE);
 			
 		} else if (pitch == "Fa") {
 			// Fa: keyOne && !keyTwo && keyThree && !keyFour
+			makeVisible(Keys.ONE);
+			makeVisible(Keys.THREE);
 			
 		} else if (pitch == "Fa#") {
 			// Fa#: !keyOne && keyTwo && keyThree && keyFour
+			makeVisible(Keys.TWO);
+			makeVisible(Keys.THREE);
+			makeVisible(Keys.FOUR);
 			
 		} else if (pitch == "So") {
 			// So: !keyOne && !keyTwo && keyThree && keyFour
+			makeVisible(Keys.THREE);
+			makeVisible(Keys.FOUR);
 			
 		} else if (pitch == "So#") {
 			// So#: !keyOne && keyTwo && keyThree && !keyFour
+			makeVisible(Keys.TWO);
+			makeVisible(Keys.THREE);
 			
 		} else if (pitch == "La") {
 			// La: !keyOne && !keyTwo && keyThree && !keyFour
+			makeVisible(Keys.THREE);
 			
 		} else if (pitch == "La#") {
 			// La#: !keyOne && !keyTwo && !keyThree && keyFour
+			makeVisible(Keys.FOUR);
 			
 		} else if (pitch == "Ti") {
 			// Ti: !keyOne && keyTwo && !keyThree && !keyFour
+			makeVisible(Keys.TWO);
 			
 		} else if (pitch == "Dohi") {
 			// Dohi: !keyOne && !keyTwo && !keyThree && !keyFour && keyFive
+			makeVisible(Keys.FIVE);
 			
 		} else {
 			// silence
@@ -56,11 +79,19 @@ public class AutomationController {
 	}
 	
 	public void makeVisible(Keys key){
-		
+		for(OcarinaButton b :UIButtons){
+			if(b.getKey() == key){
+				b.showOverlay();
+			}
+		}
 	}
 	
 	public void makeInvisible(Keys key){
-		
+		for(OcarinaButton b :UIButtons){
+			if(b.getKey() == key){
+				b.hideOverlay();
+			}
+		}
 	}
 	
 	private void clearNotes(){
