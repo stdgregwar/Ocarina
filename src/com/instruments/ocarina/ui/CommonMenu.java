@@ -20,7 +20,6 @@ public class CommonMenu extends Activity {
 		currentSimpleClassName = name;
 	}
 	
-	@SuppressWarnings("unused")
 	private SongPlayer songPlayer;
 	// list of buttons that we'll pass to the songPlayer
 	protected ArrayList<OcarinaButton> buttonList;

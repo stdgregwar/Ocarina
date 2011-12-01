@@ -1,7 +1,6 @@
 package com.instruments.ocarina.service;
 
 import java.util.ArrayList;
-
 import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.ui.OcarinaButton;
 
@@ -75,7 +74,6 @@ public class AutomationController {
 			// silence
 			
 		}
-		
 	}
 	
 	public void makeVisible(Keys key){
@@ -94,7 +92,7 @@ public class AutomationController {
 		}
 	}
 	
-	private void clearNotes(){
+	public void clearNotes(){
 		makeInvisible(Keys.ONE);
 		makeInvisible(Keys.TWO);
 		makeInvisible(Keys.THREE);
