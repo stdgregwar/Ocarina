@@ -84,6 +84,6 @@ public class SongPlayer {
 		//hardcoding a song in here because we ran out of time to retrieve a song.
 		ArrayList<Note> maryhadalittlelamb = new ArrayList<Note>();
 		maryhadalittlelamb.add(Note.QUARTER.getSelfWithPitch("c"));		
-		return new ArrayList<Note>();
+		return maryhadalittlelamb;
 	}
 }
