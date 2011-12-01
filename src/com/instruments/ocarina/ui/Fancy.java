@@ -1,5 +1,7 @@
 package com.instruments.ocarina.ui;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 
 import com.instruments.ocarina.Keys;
@@ -11,20 +13,23 @@ import com.instruments.ocarina.R;
  */
 public class Fancy extends OcarinaUI {
 
+	ArrayList<OcarinaButton> buttonList;
+	
 	@Override
-	public void onCreate(Bundle savedInstanceState)
-	{
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
+		buttonList = new ArrayList<OcarinaButton>();
+		
 		setContentView(R.layout.fancy);
-		initializeOcarinaButton(R.id.ocarinaHoleTopLeft, Keys.ONE);
-		initializeOcarinaButton(R.id.ocarinaHoleTopRight, Keys.TWO);
-		initializeOcarinaButton(R.id.ocarinaHoleBottomLeft, Keys.THREE);
-		initializeOcarinaButton(R.id.ocarinaHoleBottomRight, Keys.FOUR);
-		initializeOcarinaButton(R.id.ocarinaBlowHole, Keys.FIVE);
+		buttonList.add(initializeOcarinaButton(R.id.ocarinaHoleTopLeft, Keys.ONE));
+		buttonList.add(initializeOcarinaButton(R.id.ocarinaHoleTopRight, Keys.TWO));
+		buttonList.add(initializeOcarinaButton(R.id.ocarinaHoleBottomLeft, Keys.THREE));
+		buttonList.add(initializeOcarinaButton(R.id.ocarinaHoleBottomRight, Keys.FOUR));
+		buttonList.add(initializeOcarinaButton(R.id.ocarinaBlowHole, Keys.FIVE));
 	}
 
-	private void initializeOcarinaButton (int buttonID, Keys key) {
+	private OcarinaButton initializeOcarinaButton (int buttonID, Keys key) {
 		OcarinaButton button;
 		// cast to correct type
 		if (key == Keys.FIVE) {
@@ -34,5 +39,7 @@ public class Fancy extends OcarinaUI {
 		}
 		button.setSoundPlayer(super.getSoundPlayer());
 		button.setKey(key);
+		
+		return button;
 	}
 }
