@@ -2,7 +2,6 @@ package com.instruments.ocarina.service;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -15,7 +14,7 @@ public class SongPlayer {
 	private IResourceRetriever resourceGet;
 	private AutomationController controller;
 	private Note note;
-	private List<Note> noteList;
+	private ArrayList<Note> noteList;
 	private int index;
 	private Timer timer = new Timer();
 	private long delay;
@@ -23,6 +22,7 @@ public class SongPlayer {
 	
 	public SongPlayer(ArrayList<OcarinaButton> buttons){
 		controller = new AutomationController(buttons);
+		task = new NoteTask();
 	}
 	
 	public enum Note {
@@ -67,7 +67,7 @@ public class SongPlayer {
 		controller.setCue(note.getPitch());
 		
 		index++;
-		if(!(index>noteList.size())){
+		if(!(index >= noteList.size())){
 			timer.schedule(task, delay);
 		}
 	}
@@ -81,7 +81,7 @@ public class SongPlayer {
 		}
 	}
 	
-	private List<Note> decodeSong(File songFile) {
+	private ArrayList<Note> decodeSong(File songFile) {
 		//set value of enums based on decoded bpm here
 		//hardcoding a song in here because we ran out of time to retrieve a song.
 		ArrayList<Note> maryhadalittlelamb = new ArrayList<Note>();

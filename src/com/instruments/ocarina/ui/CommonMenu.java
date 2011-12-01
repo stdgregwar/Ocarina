@@ -2,13 +2,15 @@ package com.instruments.ocarina.ui;
 
 
 import java.util.ArrayList;
-import com.instruments.ocarina.R;
-import com.instruments.ocarina.service.SongPlayer;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.instruments.ocarina.R;
+import com.instruments.ocarina.service.SongPlayer;
 
 public class CommonMenu extends Activity {
 
@@ -55,7 +57,7 @@ public class CommonMenu extends Activity {
 				currentSimpleClassName = Fancy.class.getSimpleName();
 				break;
 			case R.id.songplayer:
-				if (currentSimpleClassName == Fancy.class.getSimpleName() || currentSimpleClassName == Classic.class.getSimpleName())
+				if (currentSimpleClassName.equals(Fancy.class.getSimpleName())  || currentSimpleClassName.equals(Classic.class.getSimpleName()))
 				{
 					// instantiate song player object
 					songPlayer = new SongPlayer(buttonList);

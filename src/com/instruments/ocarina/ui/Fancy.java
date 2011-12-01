@@ -27,6 +27,8 @@ public class Fancy extends OcarinaUI {
 		buttonList.add(initializeOcarinaButton(R.id.ocarinaHoleBottomLeft, Keys.THREE));
 		buttonList.add(initializeOcarinaButton(R.id.ocarinaHoleBottomRight, Keys.FOUR));
 		buttonList.add(initializeOcarinaButton(R.id.ocarinaBlowHole, Keys.FIVE));
+		
+		setCurrentSimpleClassName(Fancy.class.getSimpleName());
 	}
 
 	private OcarinaButton initializeOcarinaButton (int buttonID, Keys key) {
