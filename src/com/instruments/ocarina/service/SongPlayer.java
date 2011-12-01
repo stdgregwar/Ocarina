@@ -52,7 +52,6 @@ public class SongPlayer {
 		
 		index++;
 		if(!(index>noteList.size())){
-			//start show button light up here
 			timer.schedule(task, delay);
 		}
 	}
@@ -61,7 +60,6 @@ public class SongPlayer {
 	
 	class NoteTask extends TimerTask {
 		public void run(){
-			//end show button light up here
 			nextNote();
 			timer.cancel();
 		}
