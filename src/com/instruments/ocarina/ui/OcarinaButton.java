@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import com.instruments.ocarina.Keys;
+import com.instruments.ocarina.R;
 import com.instruments.ocarina.service.ISoundPlayer;
 
 public abstract class OcarinaButton extends View {
@@ -16,6 +17,7 @@ public abstract class OcarinaButton extends View {
 	private Keys key;
 	private ISoundPlayer soundPlayer;
 	protected Drawable drawableIcon;
+	protected Drawable drawableOverlayIcon;
 	protected int buttonUp;
 	protected int buttonDown;
 	private boolean isPressed;
@@ -36,14 +38,18 @@ public abstract class OcarinaButton extends View {
 	 * Shows an overlay on the button, signaling the user to press the key
 	 */
 	public void showOverlay() {
-		// TODO: implement
+		drawableOverlayIcon.setAlpha(255);
+		// force redraw
+		postInvalidate();
 	}
 	
 	/**
 	 * Hides the overlay on the button
 	 */
 	public void hideOverlay() {
-		// TODO: implement
+		drawableOverlayIcon.setAlpha(0);
+		// force redraw
+		postInvalidate();
 	}
 	
 	// needed to generate preview in the android dev kit
@@ -64,6 +70,8 @@ public abstract class OcarinaButton extends View {
         canvas.save();
         //canvas.translate(posX, posY);
         drawableIcon.draw(canvas);
+        drawableOverlayIcon.setAlpha(0);
+        drawableOverlayIcon.draw(canvas);
         canvas.restore();
     }
 
