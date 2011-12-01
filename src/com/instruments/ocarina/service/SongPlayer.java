@@ -6,6 +6,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.net.Uri;
+import android.util.Log;
 
 import com.instruments.ocarina.dao.IResourceRetriever;
 import com.instruments.ocarina.ui.OcarinaButton;
@@ -25,13 +26,20 @@ public class SongPlayer {
 		task = new NoteTask();
 	}
 	
-	public enum Note {
-		QUARTER(4),HALF(2),WHOLE(1),EIGHTH(8);
+	public class Note {
 		
 		private Integer type;
 		private String pitch;
-		private Note(Integer i){
+		static final int QUARTER = 4;
+		static final int HALF = 2;
+		static final int WHOLE = 1;
+		static final int EIGHTH = 8;
+		public Note(Integer i){
 			type=i;
+		}
+		public Note(Integer i,String s){
+			type=i;
+			pitch=s;
 		}
 		public Integer getNoteType(){
 			return type;
@@ -45,10 +53,6 @@ public class SongPlayer {
 		public void setPitch(String i) {
 			pitch=i;
 		}
-		public Note getSelfWithPitch(String s){
-			pitch=s;
-			return this;
-		}
 	}
 	
 	public void playSong(Uri song) {
@@ -56,14 +60,13 @@ public class SongPlayer {
 		//hardcoding song. ran out of time.
 		noteList = decodeSong(new File(""));
 		index = 0;
-		
 		this.nextNote();
 	}
 	
 	private void nextNote(){
+		task = new NoteTask();
 		note = noteList.get(index);
-		delay = 1000/note.getNoteType();
-		
+		delay = 4000/note.getNoteType();
 		controller.setCue(note.getPitch());
 		
 		index++;
@@ -77,7 +80,7 @@ public class SongPlayer {
 	class NoteTask extends TimerTask {
 		public void run(){
 			nextNote();
-			timer.cancel();
+			this.cancel();
 		}
 	}
 	
@@ -85,13 +88,13 @@ public class SongPlayer {
 		//set value of enums based on decoded bpm here
 		//hardcoding a song in here because we ran out of time to retrieve a song.
 		ArrayList<Note> maryhadalittlelamb = new ArrayList<Note>();
-		maryhadalittlelamb.add(Note.QUARTER.getSelfWithPitch("Mi"));
-		maryhadalittlelamb.add(Note.QUARTER.getSelfWithPitch("Re"));
-		maryhadalittlelamb.add(Note.QUARTER.getSelfWithPitch("Do"));
-		maryhadalittlelamb.add(Note.QUARTER.getSelfWithPitch("Re"));
-		maryhadalittlelamb.add(Note.QUARTER.getSelfWithPitch("Mi"));
-		maryhadalittlelamb.add(Note.QUARTER.getSelfWithPitch("Mi"));
-		maryhadalittlelamb.add(Note.QUARTER.getSelfWithPitch("Mi"));
+		maryhadalittlelamb.add(new Note(Note.QUARTER,"Mi"));
+		maryhadalittlelamb.add(new Note(Note.QUARTER,"Re"));
+		maryhadalittlelamb.add(new Note(Note.QUARTER,"Do"));
+		maryhadalittlelamb.add(new Note(Note.QUARTER,"Re"));
+		maryhadalittlelamb.add(new Note(Note.QUARTER,"Mi"));
+		maryhadalittlelamb.add(new Note(Note.QUARTER,"Mi"));
+		maryhadalittlelamb.add(new Note(Note.QUARTER,"Mi"));
 		return maryhadalittlelamb;
 	}
 }
