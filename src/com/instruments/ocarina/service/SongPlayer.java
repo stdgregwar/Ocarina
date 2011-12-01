@@ -85,7 +85,7 @@ public class SongPlayer {
 		//set value of enums based on decoded bpm here
 		//hardcoding a song in here because we ran out of time to retrieve a song.
 		ArrayList<Note> maryhadalittlelamb = new ArrayList<Note>();
-		maryhadalittlelamb.add(Note.QUARTER.getSelfWithPitch("c"));		
+		maryhadalittlelamb.add(Note.QUARTER.getSelfWithPitch("Do"));		
 		return maryhadalittlelamb;
 	}
 }
