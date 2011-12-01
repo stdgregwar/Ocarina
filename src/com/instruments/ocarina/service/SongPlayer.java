@@ -87,14 +87,15 @@ public class SongPlayer {
 	private ArrayList<Note> decodeSong(File songFile) {
 		//set value of enums based on decoded bpm here
 		//hardcoding a song in here because we ran out of time to retrieve a song.
-		ArrayList<Note> maryhadalittlelamb = new ArrayList<Note>();
-		maryhadalittlelamb.add(new Note(Note.QUARTER,"Mi"));
-		maryhadalittlelamb.add(new Note(Note.QUARTER,"Re"));
-		maryhadalittlelamb.add(new Note(Note.QUARTER,"Do"));
-		maryhadalittlelamb.add(new Note(Note.QUARTER,"Re"));
-		maryhadalittlelamb.add(new Note(Note.QUARTER,"Mi"));
-		maryhadalittlelamb.add(new Note(Note.QUARTER,"Mi"));
-		maryhadalittlelamb.add(new Note(Note.QUARTER,"Mi"));
-		return maryhadalittlelamb;
+		ArrayList<Note> scale = new ArrayList<Note>();
+		scale.add(new Note(Note.QUARTER,"Do"));
+		scale.add(new Note(Note.QUARTER,"Re"));
+		scale.add(new Note(Note.QUARTER,"Mi"));
+		scale.add(new Note(Note.QUARTER,"Fa"));
+		scale.add(new Note(Note.QUARTER,"So"));
+		scale.add(new Note(Note.QUARTER,"La"));
+		scale.add(new Note(Note.QUARTER,"Ti"));
+		scale.add(new Note(Note.QUARTER,"Dohi"));
+		return scale;
 	}
 }
