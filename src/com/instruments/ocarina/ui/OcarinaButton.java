@@ -23,11 +23,29 @@ public abstract class OcarinaButton extends View {
 	public void setKey(Keys key) {
 		this.key = key;
 	}
+	
+	public Keys getKey() {
+		return key;
+	}
 
 	public void setSoundPlayer(ISoundPlayer soundPlayer) {
 		this.soundPlayer = soundPlayer;
 	}
 
+	/**
+	 * Shows an overlay on the button, signaling the user to press the key
+	 */
+	public void showOverlay() {
+		// TODO: implement
+	}
+	
+	/**
+	 * Hides the overlay on the button
+	 */
+	public void hideOverlay() {
+		// TODO: implement
+	}
+	
 	// needed to generate preview in the android dev kit
 	public OcarinaButton(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
