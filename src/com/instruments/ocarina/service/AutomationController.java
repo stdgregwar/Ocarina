@@ -2,6 +2,7 @@ package com.instruments.ocarina.service;
 
 import java.util.ArrayList;
 
+import com.instruments.ocarina.Keys;
 import com.instruments.ocarina.ui.OcarinaButton;
 
 public class AutomationController {
@@ -13,6 +14,7 @@ public class AutomationController {
 	
 	public void setCue(String pitch){
 		
+		clearNotes();
 		if (pitch == "Do") {
 			// Do: keyOne && keyTwo && keyThree && keyFour
 			
@@ -53,11 +55,19 @@ public class AutomationController {
 		
 	}
 	
-	public void makeVisible(){
+	public void makeVisible(Keys key){
 		
 	}
 	
-	public void makeInvisible(){
+	public void makeInvisible(Keys key){
 		
+	}
+	
+	private void clearNotes(){
+		makeInvisible(Keys.ONE);
+		makeInvisible(Keys.TWO);
+		makeInvisible(Keys.THREE);
+		makeInvisible(Keys.FOUR);
+		makeInvisible(Keys.FIVE);
 	}
 }
