@@ -2,9 +2,7 @@ package com.instruments.ocarina.service;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -49,14 +47,17 @@ public class SongPlayer {
 		note = noteList.get(index);
 		divisor = note.getNoteType();
 		delay = 1000/divisor.getValue();
-		index++;
 		
+		controller.setCue(note.getPitch());
+		
+		index++;
 		if(!(index>noteList.size())){
-			
 			//start show button light up here
 			timer.schedule(task, delay);
 		}
 	}
+	
+	
 	
 	class NoteTask extends TimerTask {
 		public void run(){
