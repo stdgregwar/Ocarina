@@ -1,9 +1,12 @@
 package com.instruments.ocarina.service;
 
+import java.util.ArrayList;
+
 public class AutomationController {
+	private ArrayList UIButtons;
 	
-	public AutomationController() {
-		//
+	public AutomationController(ArrayList buttons) {
+		UIButtons = buttons;
 	}
 	
 	public void setCue(String pitch){

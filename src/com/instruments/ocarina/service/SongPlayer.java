@@ -21,6 +21,10 @@ public class SongPlayer {
 	private Notes divisor;
 	private NoteTask task;
 	
+	public SongPlayer(ArrayList buttons){
+		controller = new AutomationController(buttons);
+	}
+	
 	public enum Notes {
 		QUARTER(4),HALF(2),WHOLE(1),EIGHTH(8);
 		
