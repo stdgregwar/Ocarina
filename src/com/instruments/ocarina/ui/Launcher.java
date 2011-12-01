@@ -2,6 +2,7 @@ package com.instruments.ocarina.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -27,6 +28,12 @@ public class Launcher extends CommonMenu {
 			Button btnFancy = (Button) findViewById(R.id.btnFancy);
 			btnFancy.setOnClickListener(new BtnActivityLauncher(Fancy.class));
 			
+		}
+		
+		@Override
+		public boolean onPrepareOptionsMenu(Menu menu) {
+			menu.removeItem(R.id.songplayer);
+			return true;
 		}
 		
 		
